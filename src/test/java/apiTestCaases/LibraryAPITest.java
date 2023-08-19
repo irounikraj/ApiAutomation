@@ -28,7 +28,7 @@ public class LibraryAPITest {
 
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2,invocationCount=3)
 	public void getbookdatabybookidbyapi() {
 		// https://rahulshettyacademy.com/Library/GetBook.php?ID=bcd2926
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
