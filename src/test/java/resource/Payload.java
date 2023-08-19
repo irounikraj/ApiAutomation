@@ -15,4 +15,9 @@ public class Payload {
 		return "	{\"name\":\"test\",\"salary\":\"123\",\"age\":\"23\"}";
 	}
 
+	public static String updatebookdata() {
+		return "{\r\n" + "\"name\":\"Learn Appium Automation with Java\",\r\n" + "\"isbn\":\"bcd\",\r\n"
+				+ "\"aisle\":\"2926\",\r\n" + "\"author\":\"John foer\"\r\n" + "}";
+	}
+
 }
