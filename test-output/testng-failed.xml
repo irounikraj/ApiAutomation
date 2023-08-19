@@ -5,7 +5,8 @@
     <classes>
       <class name="apiTestCaases.LibraryAPITest">
         <methods>
-          <include name="getbookdatabybookidbyapi"/>
+          <include name="createbookapi"/>
+          <include name="getbookbyauthornameapi"/>
         </methods>
       </class> <!-- apiTestCaases.LibraryAPITest -->
     </classes>
