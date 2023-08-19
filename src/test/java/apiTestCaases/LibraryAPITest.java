@@ -6,11 +6,15 @@ import io.restassured.response.Response;
 import resource.Payload;
 
 import static io.restassured.RestAssured.*;
+import static org.junit.Assert.assertThat;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
+@Test(priority = 1)
 public class LibraryAPITest {
+	String bookid;
+
 	public void createbookapi() {
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
 		// https://rahulshettyacademy.com/Library/Addbook.php
@@ -18,8 +22,19 @@ public class LibraryAPITest {
 				.when().post("Library/Addbook.php").then().assertThat().log().all().statusCode(200).extract()
 				.response();
 		String response = res.asString();
-		// JsonPath js = new JsonPath(response);
+		JsonPath js = new JsonPath(response);
+		bookid = js.getString("ID");
+		String actualmsg = js.getString("Msg");
+		Assert.assertEquals(actualmsg, "Book Already Exists");
 
+	}
+
+	@Test(priority = 2)
+	public void getbookdatabybookidbyapi() {
+		// https://rahulshettyacademy.com/Library/GetBook.php?ID=bcd2926
+		RestAssured.baseURI = "https://rahulshettyacademy.com";
+		given().log().all().header("Content-Type", "application/json").queryParam("id", bookid).when()
+				.get("Library/GetBook.php").then().assertThat().statusCode(201);
 	}
 
 }
