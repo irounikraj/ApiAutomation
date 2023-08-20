@@ -2,15 +2,17 @@ package resource;
 
 import java.util.List;
 
+
 public class PlaceInformationPOJO {
 	private int accuracy;
 	private String name;
 	private int phone_number;
 	private String address;
-	private Location location;
+	private LocationPOJO location;
 	private List<String> types;
 	private String website;
 	private String language;
+
 	public int getAccuracy() {
 		return accuracy;
 	}
@@ -43,11 +45,11 @@ public class PlaceInformationPOJO {
 		this.address = address;
 	}
 
-	public Location getLocation() {
+	public LocationPOJO getLocation() {
 		return location;
 	}
 
-	public void setLocation(Location location) {
+	public void setLocation(LocationPOJO location) {
 		this.location = location;
 	}
 
@@ -75,12 +77,4 @@ public class PlaceInformationPOJO {
 		this.language = language;
 	}
 
-	
-
-	public class Location()
-
-
-		private long lat;
-		private long lng;
-	
 }
