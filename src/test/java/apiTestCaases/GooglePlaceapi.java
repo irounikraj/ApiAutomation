@@ -19,7 +19,7 @@ public class GooglePlaceapi {
 		//https://rahulshettyacademy.com/maps/api/place/add/json?key =qaclick123
 		RestAssured.baseURI= "https://rahulshettyacademy.com";
 		Response res =given().log().all().header("Content-Type", "application/json").body(Payload.CreatePlaceonGooglepayload()).queryParam("key","qaclick123").when().post("maps/api/place/add/json").then().assertThat().statusCode(200).
-				body("status",equalTo("OK")).extract().response();
+				body("status",equalTo("OK")).log().all().extract().response();
 		String response = res.asString();
 		
 		JsonPath js = new JsonPath(response);
